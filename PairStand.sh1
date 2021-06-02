@@ -1,5 +1,9 @@
 #!/bin/bash
 sleep 4
+
+SSID="SSID:""Tigerblood"
+PASS="Pass:""tiger5000"
+
 for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
     (
         syspath="${sysdevpath%/dev}"
@@ -10,13 +14,23 @@ for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
         device="/dev/$devname - $ID_SERIAL" #| grep Silicon_Labs_CP2104_USB | cut -d- -f1 
 	espPort=$(echo "$device" | grep Silicon_Labs_CP2104_USB | cut -d " " -f1)
 	[[ -z "$espPort" ]] && exit
-	stty -F "$espPort" raw -echo 115200
 
-	echo -e "SSID:Tigerblood"> $espPort
+	retryCount=0
 
-	sleep 1
+	retry=True
 
-	echo -e "Pass:tiger5000"> $espPort
- 
+	while [ "$retry" == "True" ]
+	do
+	   stty -F "$espPort" raw -echo 115200
+	   if [ $? -eq 0 ]; then
+	      echo -e $SSID> $espPort
+	      sleep 1
+	      echo -e $PASS> $espPort
+	      retry=False
+ 	   else
+	      echo "Retrying" 	   
+	   fi
+	   sleep 3
+	done
     )
 done
