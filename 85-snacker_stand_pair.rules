@@ -1,3 +1,0 @@
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="10c4", ATTR{idProduct}=="ea60", RUN+="/home/sixshooter/Documents/Eden/Code/Snacker/StandPairing/PairStand.sh"
-
-

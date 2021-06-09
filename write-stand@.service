@@ -1,0 +1,7 @@
+[Unit]
+Description= Sending Pair command to Stands
+
+[Service]
+Type=simple
+TimeoutStartSec=30
+ExecStart=/home/sixshooter/Documents/Eden/Code/Snacker/StandPairing/PairStand.sh

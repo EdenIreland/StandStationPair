@@ -1,6 +1,6 @@
 #!/bin/bash
-#stationConfig=/home/eden/StationConfig/StationConfig.json
-stationConfig=/home/sixshooter/Documents/Eden/Code/StationConfig/StationConfig.json   
+stationConfig=/home/eden/StationConfig/StationConfig.json
+#stationConfig=/home/sixshooter/Documents/Eden/Code/StationConfig/StationConfig.json   
 
 pair_ssid="$( jq -r '.AP_Wifi.SSID' "$stationConfig" )"
 pair_pass="$( jq -r '.AP_Wifi.Password' "$stationConfig" )"
