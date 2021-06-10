@@ -1,6 +1,6 @@
 #!/bin/bash
-#stationConfig=/home/eden/StationConfig/StationConfig.json
-stationConfig=/home/sixshooter/Documents/Eden/Code/StationConfig/StationConfig.json   
+stationConfig=/home/eden/StationConfig/StationConfig.json
+#stationConfig=/home/sixshooter/Documents/Eden/Code/StationConfig/StationConfig.json   
 
 pair_ssid="$( jq -r '.AP_Wifi.SSID' "$stationConfig" )"
 pair_pass="$( jq -r '.AP_Wifi.Password' "$stationConfig" )"
@@ -33,5 +33,5 @@ for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
     )
 done
 
-echo "$pair_ssid" >> /home/sixshooter/Documents/Eden/Code/Snacker/StandPairing/RAN.txt
+#echo "$pair_ssid" >> /home/sixshooter/Documents/Eden/Code/Snacker/StandPairing/RAN.txt
 
