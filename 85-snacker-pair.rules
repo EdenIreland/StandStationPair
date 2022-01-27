@@ -1,3 +1,2 @@
-ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="10c4", ATTR{idProduct}=="ea60", RUN+="/bin/systemctl start write-stand@stand"
-
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="1a86", ATTR{idProduct}=="55d4", RUN+="/bin/systemctl start write-stand@stand"
 
