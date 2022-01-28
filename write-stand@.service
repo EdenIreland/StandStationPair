@@ -3,5 +3,8 @@ Description= Sending Pair command to Stands
 
 [Service]
 Type=simple
-TimeoutStartSec=30
-ExecStart=/home/eden/utilities/systemd_services/PairStand.sh
+ExecStartPre=/bin/sleep 4
+TimeoutStartSec=20
+ExecStart=/home/eden/PairStand/PairStand.sh
+
+
