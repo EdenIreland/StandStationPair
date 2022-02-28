@@ -1,14 +1,17 @@
 #!/bin/bash
-stationConfig=/home/eden/StationConfig/StationConfig.json
-#stationConfig=/home/sixshooter/Documents/Eden/Code/StationConfig/StationConfig.json   
 
-pair_ssid="$( jq -r '.AP_Wifi.SSID' "$stationConfig" )"
-pair_pass="$( jq -r '.AP_Wifi.Password' "$stationConfig" )"
+hotspot_url="http://10.0.0.1:8000/config/selectedHotspot"
+echo "$hotspot_url"
+request_result="$(curl "$hotspot_url" -s)"
+
+pair_ssid="$( jq -r '.message.SSID' <<< "$request_result" )"
+pair_pass="$( jq -r '.message.PSK' <<< "$request_result" )"
 
 pair_ssid="$pair_ssid"
 pair_pass="$pair_pass"
 #debug
 echo $pair_ssid
+
 
 sleep 4
 for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
