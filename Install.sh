@@ -12,3 +12,5 @@ sudo systemctl enable confirm-pair.service
 sudo udevadm control --reload-rules && udevadm trigger
 
 sudo systemctl daemon-reload
+
+sudo systemctl mask systemd-udev-settle
