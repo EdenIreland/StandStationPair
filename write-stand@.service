@@ -5,6 +5,6 @@ Description= Sending Pair command to Stands
 Type=simple
 ExecStartPre=/bin/sleep 4
 TimeoutStartSec=20
-ExecStart=/home/eden/PairStand/PairStand.sh
+ExecStart=/home/eden/StandStationPair/PairStand.sh
 
 

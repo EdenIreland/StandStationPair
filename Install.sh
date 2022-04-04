@@ -1,12 +1,13 @@
 #!/bin/bash
 
-mkdir /home/eden/PairStand
-
-cp PairStand.sh  /home/eden/PairStand/.
 
 sudo cp 85-snacker-pair.rules /etc/udev/rules.d/.
 
 sudo cp write-stand@.service /usr/lib/systemd/system/. 
+
+sudo cp confirm-pair.service /usr/lib/systemd/system/. 
+
+sudo systemctl enable confirm-pair.service
 
 sudo udevadm control --reload-rules && udevadm trigger
 

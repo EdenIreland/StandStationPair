@@ -1,0 +1,11 @@
+[Unit]
+Description= Checking Stand Pair on Boot
+
+[Service]
+Type=idle
+ExecStartPre=/bin/sleep 60
+TimeoutStartSec=20
+ExecStart=/home/eden/PairStand/PairStand.sh
+
+[Install]
+WantedBy=multi-user.target
