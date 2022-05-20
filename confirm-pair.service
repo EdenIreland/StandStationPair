@@ -5,7 +5,7 @@ Description= Checking Stand Pair on Boot
 Type=idle
 ExecStartPre=/bin/sleep 30
 TimeoutStartSec=20
-ExecStart=/home/eden/PairStand/PairStand.sh
+ExecStart=/home/eden/StandStationPair/PairStand.sh
 
 [Install]
 WantedBy=multi-user.target
